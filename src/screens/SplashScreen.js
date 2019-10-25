@@ -2,7 +2,14 @@ import React from 'react';
 import {View, Image, StyleSheet, StatusBar} from 'react-native';
 import primakaraLogo from '../assets/primakara-logo.png';
 
-const SplashScreen = () => {
+const SplashScreen = ({navigation}) => {
+  React.useEffect(() => {
+    /* Waiting 1.5 seconds then go to Auth screen */
+    setTimeout(() => {
+      navigation.navigate('Auth');
+    }, 1500);
+  });
+
   return (
     <>
       <StatusBar hidden />
