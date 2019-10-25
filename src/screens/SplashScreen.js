@@ -1,13 +1,20 @@
 import React from 'react';
 import {View, Image, StyleSheet, StatusBar} from 'react-native';
 import primakaraLogo from '../assets/primakara-logo.png';
+import firebase from 'react-native-firebase';
 
 const SplashScreen = ({navigation}) => {
   React.useEffect(() => {
-    /* Waiting 1.5 seconds then go to Auth screen */
-    setTimeout(() => {
-      navigation.navigate('Auth');
-    }, 1500);
+    firebase.auth().onAuthStateChanged(user => {
+      /* Waiting 1.5 seconds then go to Auth screen */
+      setTimeout(() => {
+        if (user) {
+          navigation.navigate('Home');
+        } else {
+          navigation.navigate('Auth');
+        }
+      }, 1500);
+    });
   });
 
   return (
