@@ -31,10 +31,6 @@ const Auth = ({navigation}) => {
   );
 };
 
-Auth.navigationOptions = {
-  header: null,
-};
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
