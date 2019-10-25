@@ -15,13 +15,13 @@ react-native init YourAppsName --version 0.61.2
 Install Material UI component to create interface easier using React Native Paper.
 
 ```
-yarn add react-native-paper
+yarn add react-native-paper@3.0.0
 ```
 
 You also need to install icons.
 
 ```
-yarn add react-native-vector-icons
+yarn add react-native-vector-icons@6.6.0
 ```
 
 (Optional) To get smaller bundle size by excluding Material UI components you don't use. Add `react-native-paper/babel` to the `plugins` section in your `babel.config.js`. It should look like this:
@@ -42,7 +42,7 @@ module.exports = {
 Install navigation using `react-navigation`.
 
 ```
-yarn add react-navigation react-native-reanimated react-native-gesture-handler react-native-screens@^1.0.0-alpha.23
+yarn add react-navigation@4.0.10 react-native-reanimated@1.3.0 react-native-gesture-handler@1.4.1 react-native-screens@1.0.0-alpha.23
 ```
 
 To finalize installation of `react-native-screens`, add the following lines below (implementation) to `dependencies` section in `android/app/build.gradle`. And make sure to have same indentation.
@@ -88,5 +88,5 @@ public class MainActivity extends ReactActivity {
 On the new version of `React Navigation`, the stack navigation is on different package. To install, follow the step below.
 
 ```
-yarn add react-navigation-stack
+yarn add react-navigation-stack@1.10.3
 ```
