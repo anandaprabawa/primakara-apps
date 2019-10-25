@@ -105,3 +105,6 @@ And platform specific installation, in this case is Android:
 1. Create [Firebase](https://firebase.google.com/) Account
 2. Setup google-services.json, follow instruction on [this link](https://rnfirebase.io/docs/v5.x.x/installation/android) (number 2)
 3. Add Firebase modules, follow instruction on [this link](https://rnfirebase.io/docs/v5.x.x/installation/android) (number 3 without update gradle and rest)
+
+_Add Firebase Auth module_
+Follow instruction on [this site](https://rnfirebase.io/docs/v5.x.x/auth/android)
