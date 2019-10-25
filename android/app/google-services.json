@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "887749621343",
+    "firebase_url": "https://primakara-apps.firebaseio.com",
+    "project_id": "primakara-apps",
+    "storage_bucket": "primakara-apps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:887749621343:android:93dac34907a213f1450dea",
+        "android_client_info": {
+          "package_name": "com.primakaraapps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "887749621343-3cis6tmtfkku7t832pgl3e1ta3hl300v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACUNPd7vm1lw9QQNrZFK9PqgE4yhl_j2k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "887749621343-3cis6tmtfkku7t832pgl3e1ta3hl300v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
