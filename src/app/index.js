@@ -1,6 +1,6 @@
 import React from 'react';
 import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper';
-import {Text} from 'react-native';
+import Navigation from './navigation';
 
 const theme = {
   ...DefaultTheme,
@@ -12,7 +12,7 @@ const theme = {
 const App = () => {
   return (
     <PaperProvider theme={theme}>
-      <Text>Hello</Text>
+      <Navigation />
     </PaperProvider>
   );
 };
