@@ -4,12 +4,14 @@ import {createStackNavigator} from 'react-navigation-stack';
 import SplashScreen from '../screens/SplashScreen';
 import AuthScreen from '../screens/Auth';
 import SignInScreen from '../screens/SignIn';
+import SignUpScreen from '../screens/SignUp';
 import HomeScreen from '../screens/Home';
 
 const MainAuthNavigation = createStackNavigator(
   {
     Auth: AuthScreen,
     SignIn: SignInScreen,
+    SignUp: SignUpScreen,
   },
   {
     headerMode: 'none',
