@@ -24,7 +24,7 @@ const SignUp = ({theme, navigation}) => {
     if (field.email !== '' && field.name !== '' && field.password !== '') {
       return Promise.resolve();
     }
-    return Promise.reject('Fields cannot be empty');
+    return Promise.reject(new Error('Fields cannot be empty'));
   };
 
   /* Function to create user when sign up button pressed, then navigate to Home screen if success */
@@ -32,13 +32,13 @@ const SignUp = ({theme, navigation}) => {
     setLoading(true);
     try {
       await validateForm().catch(error => {
-        throw new Error(error);
+        throw error;
       });
       await firebase
         .auth()
         .createUserWithEmailAndPassword(field.email, field.password)
         .catch(error => {
-          throw new Error(error);
+          throw error;
         });
       /* You don't need to setLoading to false here as the screen will switch out (not pushed) */
       navigation.navigate('Home');
