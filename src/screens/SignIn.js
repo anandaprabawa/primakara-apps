@@ -28,12 +28,14 @@ const SignIn = ({theme}) => {
           onChangeText={handleChangeTextInput('password')}
           style={styles.textInput}
         />
-        <Button
-          mode="contained"
-          contentStyle={styles.contentButton}
-          style={styles.button}>
-          Sign In
-        </Button>
+        <View style={styles.buttonWrapper}>
+          <Button
+            mode="contained"
+            contentStyle={styles.contentButton}
+            style={styles.button}>
+            Sign In
+          </Button>
+        </View>
       </View>
     </ScrollView>
   );
@@ -41,7 +43,7 @@ const SignIn = ({theme}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
   },
   bodyContainer: {
     flex: 1,
@@ -67,11 +69,14 @@ const styles = StyleSheet.create({
   textInput: {
     marginVertical: 8,
   },
+  buttonWrapper: {
+    marginTop: 'auto',
+  },
   contentButton: {
     height: 48,
   },
   button: {
-    marginTop: 'auto',
+    marginTop: 24,
   },
 });
 
