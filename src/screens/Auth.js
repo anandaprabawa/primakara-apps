@@ -14,12 +14,14 @@ const Auth = ({navigation}) => {
       <View style={styles.buttonWrapper}>
         <Button
           mode="contained"
+          contentStyle={styles.contentButton}
           style={styles.button}
           onPress={handlePressSignButton('SignIn')}>
           Sign In
         </Button>
         <Button
           mode="outlined"
+          contentStyle={styles.contentButton}
           style={styles.button}
           onPress={handlePressSignButton('SignUp')}>
           Sign Up
@@ -46,10 +48,12 @@ const styles = StyleSheet.create({
   buttonWrapper: {
     width: '100%',
   },
-  button: {
+  contentButton: {
     width: '100%',
     height: 48,
     justifyContent: 'center',
+  },
+  button: {
     marginVertical: 6,
   },
 });
