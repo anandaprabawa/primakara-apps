@@ -90,3 +90,18 @@ On the new version of `React Navigation`, the stack navigation is on different p
 ```
 yarn add react-navigation-stack@1.10.3
 ```
+
+### Add React Native Firebase
+
+Install packages within command below:
+
+```
+yarn add react-native-firebase@5.5.6
+react-native link react-native-firebase
+```
+
+And platform specific installation, in this case is Android:
+
+1. Create [Firebase](https://firebase.google.com/) Account
+2. Setup google-services.json, follow instruction on [this link](https://rnfirebase.io/docs/v5.x.x/installation/android) (number 2)
+3. Add Firebase modules, follow instruction on [this link](https://rnfirebase.io/docs/v5.x.x/installation/android) (number 3 without update gradle and rest)
