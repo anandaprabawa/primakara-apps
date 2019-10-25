@@ -2,15 +2,21 @@ import {createSwitchNavigator, createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 
 import SplashScreen from '../screens/SplashScreen';
+import AuthScreen from '../screens/Auth';
 import HomeScreen from '../screens/Home';
 
-const MainScreen = createStackNavigator({
+const MainAuthNavigation = createStackNavigator({
+  Auth: AuthScreen,
+});
+
+const MainNavigation = createStackNavigator({
   Home: HomeScreen,
 });
 
-const Navigation = createSwitchNavigator({
+const AppNavigation = createSwitchNavigator({
   Splash: SplashScreen,
-  Main: MainScreen,
+  MainAuth: MainAuthNavigation,
+  Main: MainNavigation,
 });
 
-export default createAppContainer(Navigation);
+export default createAppContainer(AppNavigation);
