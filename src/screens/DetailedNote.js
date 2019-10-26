@@ -37,9 +37,14 @@ const DetailedNoteScreen = ({navigation}) => {
     }
   };
 
+  const handleNavigateToEditNote = () => {
+    navigation.navigate('EditNote', {note: {id, title, body}});
+  };
+
   React.useEffect(() => {
     navigation.setParams({
       onPressDeleteIcon: handleOpenDialog,
+      onPressEditIcon: handleNavigateToEditNote,
     });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -81,7 +86,11 @@ DetailedNoteScreen.navigationOptions = ({navigation}) => ({
   title: 'Detailed Note',
   headerRight: (
     <>
-      <IconButton icon="pencil" color="#ffffff" />
+      <IconButton
+        icon="pencil"
+        color="#ffffff"
+        onPress={navigation.getParam('onPressEditIcon')}
+      />
       <IconButton
         icon="delete"
         color="#ffffff"

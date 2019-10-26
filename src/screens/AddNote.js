@@ -30,9 +30,8 @@ const AddNoteScreen = ({navigation}) => {
         .add(notes);
       navigation.goBack();
     } catch (error) {
-      setErrorMessage(error.message);
-    } finally {
       setLoading(false);
+      setErrorMessage(error.message);
     }
   };
 
