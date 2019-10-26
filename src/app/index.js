@@ -1,16 +1,8 @@
 import React from 'react';
 import {StatusBar} from 'react-native';
-import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper';
+import {Provider as PaperProvider} from 'react-native-paper';
+import theme from './theme';
 import Navigation from './navigation';
-
-const theme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: '#1976d2',
-    secondary: '#2e7d32',
-  },
-};
 
 const App = () => {
   return (
