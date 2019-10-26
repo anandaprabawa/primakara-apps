@@ -38,9 +38,8 @@ const SignUp = ({theme, navigation}) => {
       /* You don't need to setLoading to false here as the screen will switch out (not pushed) */
       navigation.navigate('Home');
     } catch (error) {
-      setErrorMessage(error.message);
-    } finally {
       setLoading(false);
+      setErrorMessage(error.message);
     }
   };
 
