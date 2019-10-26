@@ -2,6 +2,8 @@
 
 ## Getting Started
 
+To create your own project based on this apps, please following steps below and make sure the version of packages or config you installed/use are exactly the same.
+
 ### Create Project
 
 Create react native apps with exact version to ensure you have the same version within this guide.
