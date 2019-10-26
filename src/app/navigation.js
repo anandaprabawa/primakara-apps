@@ -1,5 +1,6 @@
 import {createSwitchNavigator, createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
+import theme from './theme';
 
 import SplashScreen from '../screens/SplashScreen';
 import AuthScreen from '../screens/Auth';
@@ -18,9 +19,19 @@ const MainAuthNavigation = createStackNavigator(
   },
 );
 
-const MainNavigation = createStackNavigator({
-  Home: HomeScreen,
-});
+const MainNavigation = createStackNavigator(
+  {
+    Home: HomeScreen,
+  },
+  {
+    defaultNavigationOptions: {
+      headerTintColor: '#ffffff',
+      headerStyle: {
+        backgroundColor: theme.colors.primary,
+      },
+    },
+  },
+);
 
 const AppNavigation = createSwitchNavigator({
   Splash: SplashScreen,
