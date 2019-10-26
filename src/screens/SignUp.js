@@ -5,7 +5,7 @@ import firebase from 'react-native-firebase';
 
 const SignUp = ({theme, navigation}) => {
   /* State to temporary save data only on this screen (SignUp) when `handleChangeTextInput` invoked */
-  const [field, setField] = React.useState({name: '', email: '', password: ''});
+  const [field, setField] = React.useState({email: '', password: ''});
 
   /* Loading state used while waiting response from firebase */
   const [loading, setLoading] = React.useState(false);
@@ -21,7 +21,7 @@ const SignUp = ({theme, navigation}) => {
 
   /* Function to validate form inputs */
   const validateForm = async () => {
-    if (field.email !== '' && field.name !== '' && field.password !== '') {
+    if (field.email !== '' && field.password !== '') {
       return Promise.resolve();
     }
     return Promise.reject(new Error('Fields cannot be empty'));
@@ -62,12 +62,6 @@ const SignUp = ({theme, navigation}) => {
             <Text style={styles.subtitle}>Sign up to use our app!</Text>
           </View>
           <View style={styles.bodyContainer}>
-            <TextInput
-              label="Name"
-              value={field.name}
-              onChangeText={handleChangeTextInput('name')}
-              style={styles.textInput}
-            />
             <TextInput
               label="Email"
               value={field.email}
