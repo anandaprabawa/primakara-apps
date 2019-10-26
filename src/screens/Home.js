@@ -15,7 +15,7 @@ const Home = ({navigation}) => {
       .onSnapshot(snapshot => {
         const docs = [];
         snapshot.docs.forEach(doc => {
-          docs.push(doc.data());
+          docs.push({...doc.data(), id: doc.id});
         });
         setData(docs);
       });
@@ -36,16 +36,21 @@ const Home = ({navigation}) => {
     navigation.navigate('AddNote');
   };
 
+  const handleNavigateToDetailedNote = item => () => {
+    navigation.navigate('DetailedNote', {note: item});
+  };
+
   return (
     <View style={styles.container}>
       <FlatList
         data={data}
-        keyExtractor={(item, idx) => `${item.title}-${idx}`}
+        keyExtractor={item => item.id}
         renderItem={({item}) => (
           <List.Item
             title={item.title}
             description={item.body}
             left={props => <List.Icon {...props} icon="note" />}
+            onPress={handleNavigateToDetailedNote(item)}
           />
         )}
       />
