@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, View, StyleSheet} from 'react-native';
+import {ScrollView, View, StyleSheet, Image, Dimensions} from 'react-native';
 import {
   Text,
   IconButton,
@@ -10,7 +10,7 @@ import {
 import firebase from 'react-native-firebase';
 
 const DetailedNoteScreen = ({navigation}) => {
-  const {id, title, body} = navigation.getParam('note');
+  const {id, title, body, image} = navigation.getParam('note');
 
   const [showDialog, setShowDialog] = React.useState(false);
   const [loadingDelete, setLoadingDelete] = React.useState(false);
@@ -39,7 +39,7 @@ const DetailedNoteScreen = ({navigation}) => {
   };
 
   const handleNavigateToEditNote = () => {
-    navigation.navigate('EditNote', {note: {id, title, body}});
+    navigation.navigate('EditNote', {note: {id, title, body, image}});
   };
 
   React.useEffect(() => {
@@ -53,6 +53,13 @@ const DetailedNoteScreen = ({navigation}) => {
     <>
       <ScrollView>
         <View style={styles.container}>
+          {image && (
+            <Image
+              source={{uri: image}}
+              resizeMode="cover"
+              style={styles.image}
+            />
+          )}
           <View style={styles.field}>
             <Text style={styles.label}>Title</Text>
             <Text style={styles.text}>{title}</Text>
@@ -101,6 +108,7 @@ DetailedNoteScreen.navigationOptions = ({navigation}) => ({
   ),
 });
 
+const screenWidth = Dimensions.get('screen').width;
 const styles = StyleSheet.create({
   container: {
     padding: 16,
@@ -115,6 +123,11 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
+  },
+  image: {
+    width: '100%',
+    height: screenWidth - 48,
+    marginBottom: 24,
   },
 });
 
