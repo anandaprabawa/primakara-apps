@@ -7,6 +7,7 @@ import AuthScreen from '../screens/Auth';
 import SignInScreen from '../screens/SignIn';
 import SignUpScreen from '../screens/SignUp';
 import HomeScreen from '../screens/Home';
+import AddNoteScreen from '../screens/AddNote';
 
 const MainAuthNavigation = createStackNavigator(
   {
@@ -22,6 +23,7 @@ const MainAuthNavigation = createStackNavigator(
 const MainNavigation = createStackNavigator(
   {
     Home: HomeScreen,
+    AddNote: AddNoteScreen,
   },
   {
     defaultNavigationOptions: {

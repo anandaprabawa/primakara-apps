@@ -15,13 +15,12 @@ const Home = ({navigation}) => {
     navigation.setParams({handlePressSignOut});
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  const handlePressAddNoteButton = () => {
+    navigation.navigate('AddNote');
+  };
+
   return (
     <View style={styles.container}>
-      <FAB
-        style={styles.fab}
-        icon="plus"
-        onPress={() => console.log('Pressed')}
-      />
       <ScrollView>
         <List.Item
           title="First title"
@@ -34,6 +33,7 @@ const Home = ({navigation}) => {
           left={props => <List.Icon {...props} icon="note" />}
         />
       </ScrollView>
+      <FAB style={styles.fab} icon="plus" onPress={handlePressAddNoteButton} />
     </View>
   );
 };
