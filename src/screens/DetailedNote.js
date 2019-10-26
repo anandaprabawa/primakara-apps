@@ -33,6 +33,7 @@ const DetailedNoteScreen = ({navigation}) => {
         .delete();
       navigation.goBack();
     } catch (error) {
+      setLoadingDelete(false);
       return null;
     }
   };
