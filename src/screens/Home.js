@@ -1,11 +1,19 @@
 import React from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
-import {withTheme, IconButton, FAB, List} from 'react-native-paper';
+import {
+  withTheme,
+  IconButton,
+  FAB,
+  List,
+  ActivityIndicator,
+  Text,
+} from 'react-native-paper';
 import firebase from 'react-native-firebase';
 
 const Home = ({navigation}) => {
   /* Notes state */
   const [data, setData] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
 
   /* Get data from firebase firestore */
   React.useEffect(() => {
@@ -18,6 +26,7 @@ const Home = ({navigation}) => {
           docs.push({...doc.data(), id: doc.id});
         });
         setData(docs);
+        setLoading(false);
       });
   }, []);
 
@@ -43,8 +52,20 @@ const Home = ({navigation}) => {
   return (
     <View style={styles.container}>
       <FlatList
+        contentContainerStyle={styles.flatListContent}
         data={data}
         keyExtractor={item => item.id}
+        ListEmptyComponent={
+          loading ? (
+            <View style={styles.centeredWrapper}>
+              <ActivityIndicator size="large" />
+            </View>
+          ) : (
+            <View style={styles.centeredWrapper}>
+              <Text style={styles.emptyNotesText}>Empty Notes</Text>
+            </View>
+          )
+        }
         renderItem={({item}) => (
           <List.Item
             title={item.title}
@@ -75,6 +96,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  flatListContent: {
+    flexGrow: 1,
+  },
   fab: {
     position: 'absolute',
     margin: 16,
@@ -84,6 +108,17 @@ const styles = StyleSheet.create({
   buttonListOptionWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  centeredWrapper: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  emptyNotesText: {
+    fontSize: 18,
+    opacity: 0.2,
+    textTransform: 'uppercase',
+    fontWeight: '700',
   },
 });
 
