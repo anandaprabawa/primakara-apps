@@ -58,7 +58,7 @@ dependencies {
 }
 ```
 
-To finalize installation of `react-native-gesture-handler` for Android, make the following modifications to `MainActivity.java` (Wihout plus sign).
+To finalize installation of `react-native-gesture-handler` for Android, make the following modifications to `MainActivity.java` (Without plus sign).
 
 ```java
 package com.reactnavigation.example;
@@ -108,13 +108,13 @@ And platform specific installation, in this case is Android:
 2. Setup google-services.json, follow instruction on [this link](https://rnfirebase.io/docs/v5.x.x/installation/android) (number 2)
 3. Add Firebase modules, follow instruction on [this link](https://rnfirebase.io/docs/v5.x.x/installation/android) (number 3 without update gradle and rest)
 
-**Add Firebase Auth module**
+**Add Firebase Auth module**  
 Follow instruction on [this site](https://rnfirebase.io/docs/v5.x.x/auth/android), but use this dependency version `implementation "com.google.firebase:firebase-auth:17.0.0"`
 
-**Add Firebase Firestore module**
+**Add Firebase Firestore module**  
 Follow instruction on [this site](https://rnfirebase.io/docs/v5.x.x/firestore/android), but use this dependency version `implementation "com.google.firebase:firebase-firestore:19.0.0"`
 
 ### Add Native Module
 
-**react-native-image-crop-picker**
+**react-native-image-crop-picker**  
 See instruction on the [website](https://github.com/ivpusic/react-native-image-crop-picker)
