@@ -1,9 +1,26 @@
 import React from 'react';
-import {ScrollView, View, StyleSheet} from 'react-native';
+import {View, StyleSheet, FlatList} from 'react-native';
 import {withTheme, IconButton, FAB, List} from 'react-native-paper';
 import firebase from 'react-native-firebase';
 
 const Home = ({navigation}) => {
+  /* Notes state */
+  const [data, setData] = React.useState([]);
+
+  /* Get data from firebase firestore */
+  React.useEffect(() => {
+    firebase
+      .firestore()
+      .collection('notes')
+      .onSnapshot(snapshot => {
+        const docs = [];
+        snapshot.docs.forEach(doc => {
+          docs.push(doc.data());
+        });
+        setData(docs);
+      });
+  }, []);
+
   /* Function to logging out user */
   const handlePressSignOut = async () => {
     await firebase.auth().signOut();
@@ -21,18 +38,17 @@ const Home = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <ScrollView>
-        <List.Item
-          title="First title"
-          description="lorem ipsum dolor sit amet"
-          left={props => <List.Icon {...props} icon="note" />}
-        />
-        <List.Item
-          title="First title"
-          description="lorem ipsum dolor sit amet"
-          left={props => <List.Icon {...props} icon="note" />}
-        />
-      </ScrollView>
+      <FlatList
+        data={data}
+        keyExtractor={(item, idx) => `${item.title}-${idx}`}
+        renderItem={({item}) => (
+          <List.Item
+            title={item.title}
+            description={item.body}
+            left={props => <List.Icon {...props} icon="note" />}
+          />
+        )}
+      />
       <FAB style={styles.fab} icon="plus" onPress={handlePressAddNoteButton} />
     </View>
   );
