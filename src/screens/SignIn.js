@@ -31,20 +31,16 @@ const SignIn = ({theme, navigation}) => {
   const handlePressSignIn = async () => {
     setLoading(true);
     try {
-      await validateForm().catch(error => {
-        throw error;
-      });
+      await validateForm();
       await firebase
         .auth()
-        .signInWithEmailAndPassword(field.email, field.password)
-        .catch(error => {
-          throw error;
-        });
+        .signInWithEmailAndPassword(field.email, field.password);
       /* You don't need to setLoading to false here as the screen will switch out (not pushed) */
       navigation.navigate('Home');
     } catch (error) {
-      setLoading(false);
       setErrorMessage(error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
