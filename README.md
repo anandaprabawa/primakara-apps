@@ -113,3 +113,8 @@ Follow instruction on [this site](https://rnfirebase.io/docs/v5.x.x/auth/android
 
 **Add Firebase Firestore module**
 Follow instruction on [this site](https://rnfirebase.io/docs/v5.x.x/firestore/android), but use this dependency version `implementation "com.google.firebase:firebase-firestore:19.0.0"`
+
+### Add Native Module
+
+**react-native-image-crop-picker**
+See instruction on the [website](https://github.com/ivpusic/react-native-image-crop-picker)
